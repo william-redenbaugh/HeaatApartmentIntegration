@@ -12,7 +12,6 @@ Just a quick sketch to have an RGB light in our project
 #include "WiFiUdp.h"
 #include "WiFi.h"
 
-
 #include "pb.h"
 #include "pb_decode.h"
 #include "pb_encode.h"
