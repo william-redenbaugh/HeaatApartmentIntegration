@@ -13,21 +13,24 @@ Fan fan;
 
 void setup_hardware(void){
   Serial.begin(115200);
+  // Setup the fan 
   fan.begin(GPIO_NUM_5, GPIO_NUM_16, GPIO_NUM_19);
-  
+  // Setup LED
   led.begin(GPIO_NUM_14, GPIO_NUM_22, GPIO_NUM_23);
   led.set_brightness(15);
   led.fade(20, 20, 0, 1000);
 }
 
 void led_control_callback(MessageReq *msg_req_ptr){
-  //msg_req_ptr->
-
+  // Getting and unpacking latest heaat message
+  HeaatMessage heaat_message = unpack_heaat_message(msg_req_ptr->data_ptr, msg_req_ptr->data_len);
+  led.fade(heaat_message.red, heaat_message.green, heaat_message.blue, 200);
   //Serial.println("message recieved!");
 }
 
 void setup() {
-  Serial.begin(9600);
+  // Setup LEDS and serial inferface ASAP
+  setup_hardware();
   Serial.println();
   Serial.print("Connecting to wifi...");
   wifi_connect();

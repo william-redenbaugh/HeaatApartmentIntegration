@@ -21,7 +21,6 @@
 MessageData unpack_message_data(uint8_t *arr, uint32_t len);
 TempuratureHumidityMessage unpack_temp_humd_data(uint8_t *arr, uint32_t len); 
 RelayMessage unpack_relay_msg(uint8_t *arr, uint32_t len);
-
-
+HeaatMessage unpack_heaat_message(uint8_t *arr, uint32_t len);
 
 #endif 
