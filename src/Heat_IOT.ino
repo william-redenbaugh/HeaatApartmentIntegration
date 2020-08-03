@@ -6,7 +6,6 @@ Just a quick sketch to have an RGB light in our project
 */
 
 #include "wifi_setup.h"
-#include "mqtt_task.h"
 #include "RGB_control.h"
 #include "fan.h"
 #include "WiFiUdp.h"
@@ -43,7 +42,7 @@ void setup_hardware(void){
 
 void setup() {
   setup_hardware();
-  setup_wifi();
+  //setup_wifi();
   Serial.begin(9600);
   udp.begin(4040);
 }
